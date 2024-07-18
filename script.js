@@ -16,7 +16,7 @@ class Calculator{
     }
 
     appendNumber(number){
-        if(number === '.' && this.currentOperand.includes('.')) return;
+        if(number === '.' && this.currentOperand.toString().includes('.')) return;
         this.currentOperand = this.currentOperand.toString() + number.toString();
     }
 
@@ -49,8 +49,12 @@ class Calculator{
                 compute = prev * curr;
                 break;
             case '÷':
-                if(curr === '0') return
-                compute = prev / curr;
+                if(curr == '0') {
+                    compute = '0';
+                }
+                else{
+                    compute = prev / curr;
+                }
                 break;
             default:
                 return;
